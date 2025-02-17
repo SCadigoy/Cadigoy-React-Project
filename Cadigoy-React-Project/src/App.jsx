@@ -38,7 +38,7 @@ export default App
 */
 
 import React, { useState } from 'react';
-import './app.css';
+import './index.css';
 
 function App() {
   const [num1, setNum1] = useState('');
@@ -67,27 +67,26 @@ function App() {
           setResult(number1 / number2);
         }
         break;
+      default:
+        setResult('Invalid operator');
     }
   }
 
   return (
-    <div>
+    <div className="App">
       <h1>Basic Calculator</h1>
-      <div>
+      <div className="input-container">
         <input type="number" value={num1} onChange={(e) => setNum1(e.target.value)} placeholder="Enter first number"/>
-        <input type="number" value={num2} onChange={(e) => setNum2(e.target.value)} placeholder="Enter Second number"/>
+        <input type="number" value={num2} onChange={(e) => setNum2(e.target.value)} placeholder="Enter second number"/>
       </div>
-      <div>
+      <div className="button-container">
         <button onClick={() => setOperator('+')}>+</button>
         <button onClick={() => setOperator('-')}>-</button>
         <button onClick={() => setOperator('*')}>*</button>
         <button onClick={() => setOperator('/')}>/</button>
         <button onClick={handleCalculate}>=</button>
-        <h2>Answer: {result}</h2>
       </div>
-      <div>
-        
-      </div>
+      <h2>Answer: {result}</h2>
     </div>
   );
 }
